@@ -29,3 +29,37 @@ Current_year = 2022
 census['age'] = current_year - (census['birth_year'])
 print(census.head())
 
+# Variance in London's Weather Data
+
+print(london_data.iloc[100:200])
+print(len(london_data))
+
+temp = london_data['TemperatureC']
+average_temp = np.average(temp)
+temperature_var = np.var(temp)
+temperature_standard_deviation = np.std(temp)
+print(london_data.head())
+
+june = london_data.loc[london_data["month"] == 6]["TemperatureC"]
+print(june.head())
+july = london_data.loc[london_data["month"] == 7]["TemperatureC"]
+
+june_avg = np.average(june)
+july_avg = np.average(july)
+
+print(june_avg)
+print(july_avg)
+
+june_std = np.std(june)
+july_std = np.std(july)
+
+print(june_std)
+print(july_std)
+
+for i in range(1, 13):
+  month = london_data.loc[london_data["month"] == i]["TemperatureC"]
+
+  print("The mean temperature in month "+str(i) +" is "+ str(np.mean(month)))
+
+  print("The standard deviation of temperature in month "+str(i) +" is "+ str(np.std(month)) +"\n")
+

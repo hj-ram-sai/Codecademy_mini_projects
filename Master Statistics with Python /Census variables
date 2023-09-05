@@ -1,0 +1,24 @@
+import codecademylib3
+import pandas as pd
+
+census = pd.read_csv('census_data.csv', index_col=0)
+
+print(census.head())
+print(census.dtypes)
+print(census['num_children'].unique())
+
+census['birth_year'] = census['birth_year'].replace(['missing'],'1967')
+print(census['birth_year'].unique())
+
+census['birth_year'] = census['birth_year'].astype(int)
+print(census.dtypes)
+
+print(census['birth_year'].mean())
+
+census = pd.get_dummies(census, columns = ['marital_status'])
+print(census.head())
+
+Current_year = 2022
+census['age'] = current_year - (census['birth_year'])
+print(census.head())
+
